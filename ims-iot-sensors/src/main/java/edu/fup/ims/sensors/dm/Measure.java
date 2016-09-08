@@ -1,4 +1,4 @@
-package edu.fup.ims.sensors.model;
+package edu.fup.ims.sensors.dm;
 
 import java.util.Date;
 
@@ -15,8 +15,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  * </br>
  * <b>Entradas:</b>
  * <ul>
- *	<li> type: tipo de variable (Temperatura, Presión, etc).
- *	<li> location: localiazción donde se realiza la medida (Popayán, Bogotá, etc).
+ *	<li> type: tipo de variable (Temperatura, PresiÃ³n, etc).
+ *	<li> location: localiazciÃ³n donde se realiza la medida (Popayan, Bogota, etc).
  *	<li> timestamp: momento exacto en que se realiza la medida (06/05/2015 10:38:65.985).
  *	<li> value: valor sensado.
  * </ul>
@@ -25,35 +25,34 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  */
 @Entity
-@NamedQuery(name = Variable.FIND_ALL, query = "SELECT v FROM Variable v")
+@NamedQuery(name = Measure.FIND_ALL, query = "SELECT m FROM Measure m")
 @XmlRootElement
-public class Variable {	
+public class Measure {	
 	
-	public static final String FIND_ALL = "Variable.findAll";
+	public static final String FIND_ALL = "Measure.findAll";
 		
 	@Id 
 	//@GeneratedValue(strategy=GenerationType.SEQUENCE) Use this in postgres
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	private String type;
 	private String location;
+	private Float latitud;
+	private Float longitud;
 	private Date timestamp;
 	private float value;
 	
-	public Variable(){
-		System.out.println("cons1");
+	public Measure(){
 	}
 	
-	public Variable(String type, String location, float value){
-		System.out.println("cons2");
+	public Measure(String type, String location, float value){
 		this.setType(type);
 		this.setLocation(location);
 		this.setTimestamp(new Date());
 		this.setValue(value);		
 	}	
 	
-	public Variable(String type, String location, Date timestamp, float value){
-		System.out.println("cons3");
+	public Measure(String type, String location, Date timestamp, float value){
 		this.setType(type);
 		this.setLocation(location);
 		this.setTimestamp(timestamp);
@@ -61,11 +60,11 @@ public class Variable {
 	}	
 
 	//Getters and setters...	
-    public Integer getId() {
+    public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -83,6 +82,22 @@ public class Variable {
 
 	public void setLocation(String location) {
 		this.location = location;
+	}
+
+	public Float getLatitud() {
+		return latitud;
+	}
+
+	public void setLatitud(Float latitud) {
+		this.latitud = latitud;
+	}
+
+	public Float getLongitud() {
+		return longitud;
+	}
+
+	public void setLongitud(Float longitud) {
+		this.longitud = longitud;
 	}
 
 	public Date getTimestamp() {

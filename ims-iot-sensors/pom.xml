@@ -1,38 +1,59 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>edu.fup.ims</groupId>
-    <artifactId>ims-iot-services</artifactId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
-  <artifactId>ims-iot-sensors</artifactId>
-  <packaging>war</packaging>
-  <name>ims-iot-sensors</name>
-  
-  
-   <dependencies>
-   		<!-- Java EE6 Dependencies -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>edu.fup.ims</groupId>
+		<artifactId>ims-iot-services</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>ims-iot-sensors</artifactId>
+	<packaging>war</packaging>
+	<name>ims-iot-sensors</name>
+
+	<properties>
+		<group.id.project>edu.fup.ims</group.id.project>
+		<name.project>ims-iot-sensors</name.project>
+		<java.version>1.7</java.version>
+		<javaee.version>7.0</javaee.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<!-- Java EE6 Dependencies -->
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<version>6.0</version>
 			<scope>provided</scope>
 		</dependency>
-  </dependencies>
-  
-    <build>
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>5.3</version>
+		</dependency>
+	</dependencies>
+
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>						
 		</plugins>
-	</build>	
-	
-  
+	</build>
+
 </project>

@@ -7,6 +7,5 @@
   <name>ims-iot-services</name>
   <modules>
   	<module>ims-iot-sensors</module>
-  	<module>ims-iot-environment-services</module>
   </modules>
 </project>
