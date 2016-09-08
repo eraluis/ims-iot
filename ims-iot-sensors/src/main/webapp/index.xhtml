@@ -8,34 +8,34 @@
 <ui:composition template="/templates/basic.xhtml">
 	<ui:define name="full_content">
 		<h:form>
-			<h2>Variables</h2>
-			<p:dataTable id="variableList" var="variable" value="#{variableBean.variableList}" style="margin-bottom:20px">       		       	
+			<h2>Measures</h2>
+			<p:dataTable id="measureList" var="measure" value="#{measureBean.measureList}" style="margin-bottom:20px">       		       	
 				<p:column headerText="Id" style="text-align:center;" width="3%">
-					<h:outputText value="#{variable.id}" />
+					<h:outputText value="#{measure.id}" />
 				</p:column>
 				
 				<p:column headerText="Location" width="8%">
-					<h:outputText value="#{variable.location}" />
+					<h:outputText value="#{measure.location}" />
 				</p:column>
 				
 				<p:column headerText="Latitud" style="text-align:center;">
-					<h:outputText value="#{variable.latitud}" />
+					<h:outputText value="#{measure.latitud}" />
 				</p:column>
 				
 				<p:column headerText="Longitud" style="text-align:center;">
-					<h:outputText value="#{variable.longitud}" />
+					<h:outputText value="#{measure.longitud}" />
 				</p:column>
 		
 				<p:column headerText="Timestamp"  >
-					<h:outputText value="#{variable.timestamp}" />
+					<h:outputText value="#{measure.timestamp}" />
 				</p:column>
 				
 				<p:column headerText="Type" >
-					<h:outputText value="#{variable.type}" />
+					<h:outputText value="#{measure.type}" />
 				</p:column>
 				
 				<p:column headerText="Value" style="text-align:center;">
-					<h:outputText value="#{variable.value}" />
+					<h:outputText value="#{measure.value}" />
 				</p:column>
 			</p:dataTable>				    		    		    
     	</h:form>

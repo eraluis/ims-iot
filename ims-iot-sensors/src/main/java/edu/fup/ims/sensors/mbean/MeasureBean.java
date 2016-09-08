@@ -12,28 +12,28 @@ import edu.fup.ims.sensors.dm.Measure;
 
 @ManagedBean
 @ViewScoped
-public class VariableBean {
+public class MeasureBean {
 	
-	private List<Measure> variableList;
+	private List<Measure> measureleList;
 	
 	@Inject
-	private MeasureBO variableBO;
+	private MeasureBO measureBO;
 	
-	public VariableBean(){
+	public MeasureBean(){
 		
 	}
 	
 	@PostConstruct
 	public void init(){
-		variableList = variableBO.findAll();
+		measureleList = measureBO.findAll();
 	}
 
-	public List<Measure> getVariableList() {
-		return variableList;
+	public List<Measure> getMeasureList() {
+		return measureleList;
 	}
 
-	public void setVariableList(List<Measure> variableList) {
-		this.variableList = variableList;
+	public void setMeasureList(List<Measure> measureList) {
+		this.measureleList = measureList;
 	}
 
 }

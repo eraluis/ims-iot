@@ -1,3 +1,7 @@
+INSERT INTO `variabletype` (`name`, `baseUnit`,`symbol`, `internationalStandard`) VALUES ('Temperatura', 'Centigrados', '°C', true);
+INSERT INTO `variabletype` (`name`, `baseUnit`,`symbol`, `internationalStandard`) VALUES ('Humedad', 'Porcentaje', '%', true);
+INSERT INTO `variabletype` (`name`, `baseUnit`,`symbol`, `internationalStandard`) VALUES ('Preción atmosférica', 'mg/h', 'mg/h', true);
+
 INSERT INTO `measure` (`location`, `latitud`,`longitud`, `timestamp`, `type`, `value`) VALUES ('Popayan', '2.441304', '-76.605721', NOW(), 'temperature', '23');
 INSERT INTO `measure` (`location`, `latitud`,`longitud`, `timestamp`, `type`, `value`) VALUES ('Popayan', '2.441304', '-76.605721', NOW(), 'humidity', '30');
 INSERT INTO `measure` (`location`, `latitud`,`longitud`, `timestamp`, `type`, `value`) VALUES ('Cali', '3.444335', '-76.532135', NOW(), 'temperature', '29');

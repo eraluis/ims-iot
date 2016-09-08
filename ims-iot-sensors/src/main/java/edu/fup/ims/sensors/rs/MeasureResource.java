@@ -16,39 +16,40 @@ import javax.ws.rs.core.Response;
 import edu.fup.ims.sensors.bo.MeasureBO;
 import edu.fup.ims.sensors.dm.Measure;
 
-@Path("/variables")
-public class VariableResource {
+@Path("/measures")
+public class MeasureResource implements Resource<Measure> {
 	
-	@Inject MeasureBO variableBO;
+	@Inject MeasureBO measureBO;
 	
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
 	public List<Measure> list() {		
-		return variableBO.findAll();
+		return measureBO.findAll();
 	}	
 	
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Path("{id}")
     public Measure find(@PathParam("id") Long pId ) {
-        System.out.println("buscando pelicula con id: "+pId);
-        return variableBO.find(pId);
+        System.out.println("find measure with id: "+pId);
+        return measureBO.find(pId);
     }
         
     @POST
     @Produces({MediaType.APPLICATION_JSON})
-    public Measure add(Measure variable) {
-    	variable.setTimestamp(new Date());
-    	variableBO.add(variable);
-        return variable;
+    public Measure add(Measure measure) {
+    	measure.setTimestamp(new Date());
+    	measureBO.add(measure);
+        return measure;
     }
     
     @DELETE
     @Path("{id}")
     public Response delete(@PathParam("id") Long pId ) {
-        System.out.println("Delete variable with id:"+ pId);
-        Measure v = variableBO.find(pId);
-        variableBO.remove(v);
+        System.out.println("Delete measure with id:"+ pId);
+        Measure m = measureBO.find(pId);
+        measureBO.remove(m);
         return Response.noContent().build();
     }
+    
 }

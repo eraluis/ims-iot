@@ -119,11 +119,11 @@ public class Measure {
 	@Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("Activity");
-        sb.append(", id='").append(id).append('\'');
-        sb.append(", type='").append(type).append('\'');
-        sb.append(", location='").append(location);
-        sb.append(", timestamp='").append(timestamp).append('\'');
+        sb.append("Measure{");
+        sb.append("id=").append(id).append(",");
+        sb.append("type='").append(type).append("\',");
+        sb.append("location='").append(location).append("\',");;
+        sb.append("timestamp='").append(timestamp);
         sb.append('}');
         return sb.toString();
     }

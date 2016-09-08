@@ -15,14 +15,14 @@ public abstract class CrudBOImpl<T> implements CrudBO<T> {
     private Class<T> entityClass;
     
     private CrudBOImpl(){ }
-    
-    protected EntityManager getEm(){
-    	return em;
-    }
-    
+        
     public CrudBOImpl(Class<T> entityClass) {
         this();
         this.entityClass = entityClass;
+    }
+    
+    protected EntityManager getEm(){
+    	return em;
     }
         
     @Override

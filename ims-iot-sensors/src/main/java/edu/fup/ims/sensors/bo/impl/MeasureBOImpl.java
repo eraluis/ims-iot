@@ -9,7 +9,8 @@ import javax.persistence.TypedQuery;
 import edu.fup.ims.sensors.bo.MeasureBO;
 import edu.fup.ims.sensors.dm.Measure;
 
-@Stateless @WebService
+@Stateless
+@WebService
 public class MeasureBOImpl extends CrudBOImpl<Measure> implements MeasureBO {
 	
     public MeasureBOImpl() {
@@ -29,6 +30,5 @@ public class MeasureBOImpl extends CrudBOImpl<Measure> implements MeasureBO {
 		List<Measure> variables = query.getResultList();
 		return variables;
 	}
-
 
 }
