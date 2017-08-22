@@ -1,4 +1,4 @@
-package edu.fup.ims.sensors.rs;
+package edu.fup.ims.sensors.rest;
 
 import java.util.Date;
 import java.util.List;
@@ -13,31 +13,31 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import edu.fup.ims.sensors.bo.MeasureBO;
-import edu.fup.ims.sensors.dm.Measure;
+import edu.fup.ims.sensors.bo.SimpleMeasureBO;
+import edu.fup.ims.sensors.dm.SimpleMeasure;
 
 @Path("/measures")
-public class MeasureResource implements Resource<Measure> {
+public class MeasureResource implements Resource<SimpleMeasure> {
 	
-	@Inject MeasureBO measureBO;
+	@Inject SimpleMeasureBO measureBO;
 	
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
-	public List<Measure> list() {		
+	public List<SimpleMeasure> list() {		
 		return measureBO.findAll();
 	}	
 	
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Path("{id}")
-    public Measure find(@PathParam("id") Long pId ) {
+    public SimpleMeasure find(@PathParam("id") Long pId ) {
         System.out.println("find measure with id: "+pId);
         return measureBO.find(pId);
     }
         
     @POST
     @Produces({MediaType.APPLICATION_JSON})
-    public Measure add(Measure measure) {
+    public SimpleMeasure add(SimpleMeasure measure) {
     	measure.setTimestamp(new Date());
     	measureBO.add(measure);
         return measure;
@@ -47,7 +47,7 @@ public class MeasureResource implements Resource<Measure> {
     @Path("{id}")
     public Response delete(@PathParam("id") Long pId ) {
         System.out.println("Delete measure with id:"+ pId);
-        Measure m = measureBO.find(pId);
+        SimpleMeasure m = measureBO.find(pId);
         measureBO.remove(m);
         return Response.noContent().build();
     }

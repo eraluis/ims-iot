@@ -1,4 +1,4 @@
-package edu.fup.ims.sensors.mbean;
+package edu.fup.ims.sensors.web;
 
 import java.util.List;
 
@@ -7,17 +7,17 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
-import edu.fup.ims.sensors.bo.MeasureBO;
-import edu.fup.ims.sensors.dm.Measure;
+import edu.fup.ims.sensors.bo.SimpleMeasureBO;
+import edu.fup.ims.sensors.dm.SimpleMeasure;
 
 @ManagedBean
 @ViewScoped
 public class MeasureBean {
 	
-	private List<Measure> measureleList;
+	private List<SimpleMeasure> measureleList;
 	
 	@Inject
-	private MeasureBO measureBO;
+	private SimpleMeasureBO measureBO;
 	
 	public MeasureBean(){
 		
@@ -28,11 +28,11 @@ public class MeasureBean {
 		measureleList = measureBO.findAll();
 	}
 
-	public List<Measure> getMeasureList() {
+	public List<SimpleMeasure> getMeasureList() {
 		return measureleList;
 	}
 
-	public void setMeasureList(List<Measure> measureList) {
+	public void setMeasureList(List<SimpleMeasure> measureList) {
 		this.measureleList = measureList;
 	}
 

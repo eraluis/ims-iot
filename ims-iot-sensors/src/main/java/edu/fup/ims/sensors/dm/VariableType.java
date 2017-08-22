@@ -5,9 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
+@Table(name="tbl_variable_type")
 @NamedQuery(name = VariableType.FIND_ALL, query = "SELECT v FROM VariableType v")
 @XmlRootElement
 public class VariableType {
@@ -28,6 +30,17 @@ public class VariableType {
 		
 	}
 	
+		
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
 	public String getName() {
 		return name;
 	}

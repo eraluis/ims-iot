@@ -1,4 +1,4 @@
-package edu.fup.ims.sensors.rs;
+package edu.fup.ims.sensors.rest;
 
 import java.util.List;
 

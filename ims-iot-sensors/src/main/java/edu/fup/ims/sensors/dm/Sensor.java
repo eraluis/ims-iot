@@ -2,21 +2,15 @@ package edu.fup.ims.sensors.dm;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.MappedSuperclass;
 
-@Entity
-@NamedQuery(name = Sensor.FIND_ALL, query = "SELECT s FROM Sensor s")
-@XmlRootElement
+@MappedSuperclass
 public class Sensor {
-	
-	public static final String FIND_ALL = "Sensor.findAll";
 	
 	@Id 
 	//@GeneratedValue(strategy=GenerationType.SEQUENCE) Use this in postgres
@@ -26,11 +20,7 @@ public class Sensor {
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "fk_variable_type", nullable = false)
 	private VariableType type;
-	
-	private boolean mobile;
-	private Float latitud;
-	private Float longitud;
-	
+		
 	private boolean active;
 	private Date initDate;
 	private Date endDate;
@@ -53,30 +43,6 @@ public class Sensor {
 	
 	public void setType(VariableType type) {
 		this.type = type;
-	}
-	
-	public boolean isMobile() {
-		return mobile;
-	}
-	
-	public void setMobile(boolean mobile) {
-		this.mobile = mobile;
-	}
-	
-	public Float getLatitud() {
-		return latitud;
-	}
-	
-	public void setLatitud(Float latitud) {
-		this.latitud = latitud;
-	}
-	
-	public Float getLongitud() {
-		return longitud;
-	}
-	
-	public void setLongitud(Float longitud) {
-		this.longitud = longitud;
 	}
 	
 	public boolean isActive() {
