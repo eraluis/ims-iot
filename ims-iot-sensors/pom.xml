@@ -6,10 +6,10 @@
 		<artifactId>ims-iot</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	
+
 	<artifactId>ims-iot-sensors</artifactId>
-	<packaging>war</packaging>
 	<name>ims-iot-sensors</name>
+	<packaging>war</packaging>
 
 	<properties>
 		<group.id.project>edu.fup.ims</group.id.project>
@@ -52,7 +52,7 @@
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
-			</plugin>						
+			</plugin>
 		</plugins>
 	</build>
 
